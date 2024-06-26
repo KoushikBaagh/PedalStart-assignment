@@ -27,6 +27,11 @@ function Task({ task, onUpdateTask, onDeleteTask }) {
     }
   };
 
+  const handleStatusToggle = () => {
+    const newStatus = task.status === "completed" ? "pending" : "completed";
+    onUpdateTask(task._id, { status: newStatus });
+  };
+
   if (isEditing) {
     return (
       <form onSubmit={handleSubmit} className="task editing">
@@ -50,6 +55,14 @@ function Task({ task, onUpdateTask, onDeleteTask }) {
           onChange={handleInputChange}
           required
         />
+        <select
+          name="status"
+          value={editedTask.status}
+          onChange={handleInputChange}
+        >
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
         <button type="submit">Save</button>
         <button type="button" onClick={() => setIsEditing(false)}>
           Cancel
@@ -63,7 +76,10 @@ function Task({ task, onUpdateTask, onDeleteTask }) {
       <h3>{task.title}</h3>
       <p>{task.description}</p>
       <p>Due: {new Date(task.dueDate).toLocaleDateString()}</p>
-      <p>Status: {task.completed ? "Completed" : "Pending"}</p>
+      <p>Status: {task.status}</p>
+      <button onClick={handleStatusToggle}>
+        {task.status === "completed" ? "Mark as Pending" : "Mark as Completed"}
+      </button>
       <button onClick={() => setIsEditing(true)}>Edit</button>
       <button onClick={handleDelete}>Delete</button>
     </div>
