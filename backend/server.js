@@ -14,6 +14,16 @@ connectDB();
 app.use(cors()); // Enable CORS for all origins
 app.use(express.json());
 
+// app.get("/", (req, res) => {
+//   res.send("Hello from the Task Management API!");
+// });
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+app.use("/api", taskRoutes);
+
 // --------------------------deployment------------------------------//
 
 const __dirname1 = __dirname;
@@ -30,13 +40,3 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 // --------------------------deployment------------------------------//
-
-// app.get("/", (req, res) => {
-//   res.send("Hello from the Task Management API!");
-// });
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-app.use("/api", taskRoutes);
