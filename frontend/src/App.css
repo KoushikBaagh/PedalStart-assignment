@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.task-form {
+  margin-bottom: 20px;
+}
+
+.task-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form input,
+.task-form textarea {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.task-list {
+  text-align: left;
+}
+
+.task {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.task h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.task p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.task button {
+  margin-right: 10px;
+}
+
+.task.editing input,
+.task.editing textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
